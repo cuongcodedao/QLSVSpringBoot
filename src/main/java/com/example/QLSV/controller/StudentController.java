@@ -15,16 +15,28 @@ public class StudentController {
 
     @GetMapping("/view/{id}")
     public String getStudent(@PathVariable Long id, Model model) {
-        Student student = studentService.getStudent(id);
-        model.addAttribute("student", student);
-        return "view_student";
+        try {
+            Student student = studentService.getStudent(id);
+            model.addAttribute("student", student);
+            return "view_student";
+        }
+        catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return "error_page";
+        }
     }
 
     @GetMapping("/update/{id}")
     public String updateStudent(@PathVariable Long id, Model model) {
-        Student student = studentService.getStudent(id);
-        model.addAttribute("student", student);
-        return "update_student";
+        try {
+            Student student = studentService.getStudent(id);
+            model.addAttribute("student", student);
+            return "update_student";
+        }
+        catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return "error_page";
+        }
     }
 
     @GetMapping("/add")

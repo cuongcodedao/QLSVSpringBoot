@@ -14,7 +14,7 @@ import java.util.Optional;
 public class StudentService implements IStudentService {
     private final StudentRepository studentRepository;
     @Override
-    public Student getStudent(Long id) {
+    public Student getStudent(Long id) throws RuntimeException{
         Optional<Student> student = studentRepository.findById(id);
         return student.orElseThrow(()-> new RuntimeException("Cannot find student with id " + id));
     }
@@ -30,13 +30,13 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public void deleteStudent(Long id) {
+    public void deleteStudent(Long id) throws RuntimeException {
         Student student = studentRepository.findById(id).orElseThrow(()-> new RuntimeException("Cannot find student with id " + id));
         studentRepository.delete(student);
     }
 
     @Override
-    public Student updateStudent(Student student) {
+    public Student updateStudent(Student student) throws RuntimeException{
         Student existingStudent = studentRepository.findById(student.getId()).orElseThrow(()-> new RuntimeException("Cannot find student with id " + student.getId()));
         existingStudent.setName(student.getName());
         existingStudent.setAge(student.getAge());
