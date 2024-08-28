@@ -4,22 +4,26 @@ services:
     image: postgres
     container_name: my-postgres-container
     environment:
+      POSTGRES_USER: myuser
       POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: mydatabase
     ports:
       - "5432:5432"
     volumes:
       - my_pgdata:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
 
   springbootapp:
     image: qlsv_image
+    container_name: my-springboot-container
     ports:
       - "8080:8080"
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: spring.datasource.url
-      SPRING_DATASOURCE_USERNAME: spring.datasource.username
-      SPRING_DATASOURCE_PASSWORD: spring.datasource.password
+      SPRING_DATASOURCE_URL: jdbc:postgresql://my-postgres-container:5432/qlsv
+      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_PASSWORD: 123456
 
 volumes:
   my_pgdata:
