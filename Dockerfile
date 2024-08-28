@@ -13,7 +13,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 
-COPY --from=build /app/target/qlsv.jar /app/qlsv.jar
+COPY --from=build /app/target/QLSV-0.0.1-SNAPSHOT.jar /app/QLSV-0.0.1-SNAPSHOT.jar
 
 
-ENTRYPOINT ["java", "-jar", "/app/qlsv.jar"]
+ENTRYPOINT ["java", "-jar", "/app/QLSV-0.0.1-SNAPSHOT.jar"]
