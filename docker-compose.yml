@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres
+    container_name: my-postgres-container
+    environment:
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_pgdata:/var/lib/postgresql/data
+
+  springbootapp:
+    image: qlsv_image
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: spring.datasource.url
+      SPRING_DATASOURCE_USERNAME: spring.datasource.username
+      SPRING_DATASOURCE_PASSWORD: spring.datasource.password
+
+volumes:
+  my_pgdata:
