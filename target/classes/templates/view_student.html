@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Student Details</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+  <h1 class="mb-4">Student Details</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <p><strong>ID:</strong> <span th:text="${student.id}"></span></p>
+      <p><strong>Name:</strong> <span th:text="${student.name}"></span></p>
+      <p><strong>Age:</strong> <span th:text="${student.age}"></span></p>
+      <p><strong>Gender:</strong> <span th:text="${student.gender} == true ? 'Male' : 'Female'"></span></p>
+    </div>
+  </div>
+
+  <a href="/dang-van-cuong" class="btn btn-secondary mt-3">Back</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

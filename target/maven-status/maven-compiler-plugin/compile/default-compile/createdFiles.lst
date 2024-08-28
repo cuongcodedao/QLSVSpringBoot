@@ -1,0 +1,6 @@
+com\example\QLSV\repository\StudentRepository.class
+com\example\QLSV\controller\StudentController.class
+com\example\QLSV\QlsvApplication.class
+com\example\QLSV\entity\Student.class
+com\example\QLSV\service\impl\StudentService.class
+com\example\QLSV\service\IStudentService.class
