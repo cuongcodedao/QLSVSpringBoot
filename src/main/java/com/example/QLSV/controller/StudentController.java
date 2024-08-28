@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/dang-van-cuong")
+@RequestMapping(value={"/dang-van-cuong", "/"})
 @RequiredArgsConstructor
 public class StudentController {
     private final StudentService studentService;
