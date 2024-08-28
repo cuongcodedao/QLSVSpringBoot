@@ -4,9 +4,9 @@ services:
     image: postgres
     container_name: my-postgres-container
     environment:
-      POSTGRES_USER: myuser
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: mydatabase
+      POSTGRES_DB: qlsv
     ports:
       - "5432:5432"
     volumes:
@@ -22,7 +22,7 @@ services:
       - postgres
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://my-postgres-container:5432/qlsv
-      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 123456
 
 volumes:
